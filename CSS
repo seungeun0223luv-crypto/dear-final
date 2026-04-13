@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #e5ddd5;
+}
+
+.app {
+  max-width: 400px;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.chat {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.me {
+  text-align: right;
+  background: #dcf8c6;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.bot {
+  text-align: left;
+  background: white;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.input {
+  display: flex;
+}
+
+.input input {
+  flex: 1;
+  padding: 10px;
+}
+
+.chars {
+  display: flex;
+}
+
+.chars button {
+  flex: 1;
+}
