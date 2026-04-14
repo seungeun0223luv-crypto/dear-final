@@ -3,13 +3,19 @@ import cors from "cors";
 import dotenv from "dotenv";
 import Groq from "groq-sdk";
 import { characters, relationships } from "./characters.js";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
+
+app.use(express.static(__dirname));
 
 const client = new Groq({
   apiKey: process.env.GROQ_API_KEY,
@@ -18,6 +24,10 @@ const client = new Groq({
 function shouldReply() {
   return Math.random() < 0.9;
 }
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
 
 app.get("/health", (req, res) => {
   res.json({ ok: true });
